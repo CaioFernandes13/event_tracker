@@ -1,7 +1,8 @@
 import 'package:event_tracker/pages/busca_online.page.dart';
 import 'package:event_tracker/pages/fav.page.dart';
-import 'package:event_tracker/pages/home.page.dart';
+import 'package:event_tracker/pages/teste.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,4 +33,11 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
 

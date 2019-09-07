@@ -11,7 +11,8 @@ class HomePage extends StatelessWidget {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child:
+        Column(
           // Column is also layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -40,8 +41,8 @@ class HomePage extends StatelessWidget {
               },
               child: Text(
                 "Busca Online",
-                style: TextStyle(fontSize: 20, color: Colors.white), 
-              ), 
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
               color: Colors.black,
               padding: EdgeInsets.all(10),
             ),
@@ -51,8 +52,8 @@ class HomePage extends StatelessWidget {
               },
               child: Text(
                 "Favoritos",
-                style: TextStyle(fontSize: 20, color: Colors.white), 
-              ), 
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
               color: Colors.black,
               padding: EdgeInsets.all(10),
             ),
@@ -62,3 +63,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
