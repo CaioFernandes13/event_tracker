@@ -1,6 +1,8 @@
 import 'package:event_tracker/pages/busca_online.page.dart';
 import 'package:event_tracker/pages/fav.page.dart';
-import 'package:event_tracker/pages/teste.dart';
+import 'package:event_tracker/pages/register_event.page.dart';
+import 'package:event_tracker/pages/home.page.dart';
+//import 'package:event_tracker/pages/teste.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/bonline-page': (BuildContext context) => new BOnlinePage(),
         '/fav-page': (BuildContext context) => new FavPage(),
+        '/register-event-page': (BuildContext context) => new RegisterEventPage(),
       },
     );
   }

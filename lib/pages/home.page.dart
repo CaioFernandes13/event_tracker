@@ -20,6 +20,17 @@ class HomePage extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
+                Navigator.of(context).pushNamed('/register-event-page');
+              },
+              child: Text(
+                "Cadastrar Evento",
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+              color: Colors.black,
+              padding: EdgeInsets.all(10),
+            ),
+            RaisedButton(
+              onPressed: () {
                 Navigator.of(context).pushNamed('/bonline-page');
               },
               child: Text(

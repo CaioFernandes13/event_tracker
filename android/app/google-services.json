@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "607811958559",
+    "firebase_url": "https://tpgradi.firebaseio.com",
+    "project_id": "tpgradi",
+    "storage_bucket": "tpgradi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607811958559:android:3cc8a61f95af1e13b7222a",
+        "android_client_info": {
+          "package_name": "com.example.event_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607811958559-ldgb59adlnefiuig0k3f966i80l25j8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5Deh3TFrUlJvI0JEJBJFpsWjxdqiFKD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "607811958559-ldgb59adlnefiuig0k3f966i80l25j8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
