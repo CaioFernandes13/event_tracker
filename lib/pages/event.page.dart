@@ -35,7 +35,7 @@ class EventPage extends StatelessWidget{
             new ListTile(
               title: new Text('Editar'),
               onTap: () {
-                Navigator.of(context).pop();
+                Navigator.pop(context);
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
@@ -46,6 +46,7 @@ class EventPage extends StatelessWidget{
               title: new Text('Excluir'),
               onTap: () {
                 deleteData(_id);
+                Navigator.pop(context);
                 Navigator.of(context).pushNamed('/event-list-page');
               },
             ),

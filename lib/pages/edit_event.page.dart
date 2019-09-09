@@ -153,6 +153,7 @@ class _EditEventPageState extends State<EditEventPage> {
       event = new Event('',_date, _address, _name, _detail, _image, _url, _category);
       print(event.toJson());
       updateData(_id, event);
+      Navigator.pop(context);
       Navigator.of(context).pushNamed('/event-list-page');
     } else {
       // erro de validação

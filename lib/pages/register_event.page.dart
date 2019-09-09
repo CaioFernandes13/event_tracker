@@ -164,6 +164,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
       event = new Event('',_date, _address, _name, _detail, _image, _url, _category);
       print(event.toJson());
       createRecord(event);
+      Navigator.pop(context);
       Navigator.of(context).pushNamed('/event-list-page');
     } else {
       // erro de validação
