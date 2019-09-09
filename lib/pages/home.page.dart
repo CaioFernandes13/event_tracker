@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
               height: 450,
               width: 450,
               child: Image.asset("assets/hex.png"),
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(15),
             ),
             RaisedButton(
               onPressed: () {
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
               color: Colors.black,
               padding: EdgeInsets.all(10),
             ),
-            RaisedButton(
+            /*RaisedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/bonline-page');
               },
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
               ),
               color: Colors.black,
               padding: EdgeInsets.all(10),
-            ),
+            ),*/
             RaisedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/fav-page');
