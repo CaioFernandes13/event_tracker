@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:event_tracker/models/event.dart';
+import 'dart:async';
+import 'dart:convert';
 
 final database = Firestore.instance;
 
@@ -13,13 +15,15 @@ void createRecord(Event event) async {
   //o método "toJson" já coloca no padrão esperado para inserir no firestore
 }
 
-void retrieveData() {
-  database
+Future <List> retrieveData() async{
+  await database
       .collection("events")
       .getDocuments() //Caso queira um documento específico, basta substituir
       //essa linha por ".document("nome do documento")
       .then((QuerySnapshot snapshot) {
-    snapshot.documents.forEach((f) => print('${f.data}}'));
+    //snapshot.documents.forEach((f) => print('${f.data}}'));
+    //return jsonDecode(snapshot);
+    return snapshot.documents;
   });
 }
 

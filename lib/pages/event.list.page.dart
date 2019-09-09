@@ -2,6 +2,7 @@ import 'package:event_tracker/models/event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../database/database.dart';
 import '../repositorio.dart';
 
 class EventListPage extends StatefulWidget {
@@ -42,8 +43,8 @@ class _EventListPageState extends State<EventListPage> {
   }
 
   loadEvents() async {
-    List result = await repositorio.loadEvents();
-    print("TESTE");
+    List result = await retrieveData();
+    //print("TESTE");
     print(result);
     setState(() {
       result.forEach((item) {
@@ -52,7 +53,7 @@ class _EventListPageState extends State<EventListPage> {
             item['image'], item['url'],item['category']
             );
 
-        _events.add(event);
+        _events.add(event.toJson());
       });
     });
   }

@@ -11,6 +11,7 @@ class RegisterEventPage extends StatefulWidget {
 class _RegisterEventPageState extends State<RegisterEventPage> {
   GlobalKey<FormState> _key = new GlobalKey();
   //Event event = new Event(_img, _title, _date, _description)
+  Event event;
   bool _validate = false;
   String _date, _name, _detail, _image, _url, _category, _address;
     /*
@@ -103,6 +104,13 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
             onSaved: (String val) {
               _address = val;
             }),
+        new TextFormField(
+            decoration: new InputDecoration(hintText: 'Categoria'),
+            keyboardType: TextInputType.text,
+            maxLength: 30,
+            onSaved: (String val) {
+              _category = val;
+            }),
         new SizedBox(height: 15.0),
         new RaisedButton(
           onPressed: _sendForm,
@@ -152,7 +160,10 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
     if (_key.currentState.validate()) {
       // Sem erros na validação
       _key.currentState.save();
-      createRecord(new Event(_date, _address, _name, _detail, _image, _url, _category));
+      event = new Event(_date, _address, _name, _detail, _image, _url, _category);
+      print(event.toJson());
+      createRecord(event);
+
       /*print("Nome $nome");
       print("Ceclular $celular");
       print("Email $email");*/
