@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class Event extends StatelessWidget {
   var _img;
-  var _description;
   var _start_date;
   var _end_date;
   var _name;
@@ -51,14 +50,14 @@ class Event extends StatelessWidget {
             width: 95.0,
             height: 95.0,
           ),
-          _getColumText(_description, _start_date, _end_date,
+          _getColumText(_start_date, _end_date,
               _name, _detail, _url, _category),
         ],
       ),
     );
   }
 
-  Widget _getColumText(description, start_date, end_date, name,
+  Widget _getColumText(start_date, end_date, name,
       detail, url, category) {
     return new Expanded(
         child: new Container(
@@ -66,7 +65,6 @@ class Event extends StatelessWidget {
       child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _getDescriptionWidget(_description),
             _getStartDateWidget(_start_date),
             _getEndDateWidget(_end_date),
             _getNameWidget(_name),
@@ -75,23 +73,6 @@ class Event extends StatelessWidget {
             _getCategoryWidget(_category),
           ]),
     ));
-  }
-
-  Widget _getDescriptionWidget(String description) {
-    return new Container(
-      margin: new EdgeInsets.only(top: 5.0),
-      child: new Text(
-        description,
-        maxLines: 2,
-      ),
-    );
-  }
-
-  Widget _getDateWidget(String date) {
-    return new Text(
-      date,
-      style: new TextStyle(color: Colors.grey, fontSize: 10.0),
-    );
   }
 
   Widget _getStartDateWidget(String start_date) {
@@ -136,29 +117,27 @@ class Event extends StatelessWidget {
     );
   }
 
-  /*
+  
   Event.fromJson(Map<String, dynamic> json){
-    id = json['id'];
-    nome = json['nome'];
-    descricao = json['descricao'];
-    StartDate = json['StartDate'];
-    pais = json['pais'];
-    cidade = json['cidade'];
-    latitude = json['latitude'];
-    longitude = json['longitude'];
+    _img = json['image'];
+    _start_date = json['start_date'];
+    _end_date = json['end_date'];
+    _name = json['name'];
+    _detail = json['detail'];
+    _url = json['url'];
+    _category = json['category'];
   }
 
   Map<String, dynamic> toJson(){
     final Map<String, dynamic> json = new Map<String, dynamic> ();
-    json['id'] = this.id;
-    json['nome'] = this.nome;
-    json['descricao'] = this.descricao;
-    json['StartDate'] = this.StartDate;
-    json['pais'] = this.pais;
-    json['cidade'] = this.cidade;
-    json['latitude'] = this.latitude;
-    json['longitude'] = this.longitude;
+    json['image'] = this._img;
+    json['start_date'] = this._start_date;
+    json['end_date'] = this._end_date;
+    json['name'] = this._name;
+    json['detail'] = this._detail;
+    json['url'] = this._url;
+    json['category'] = this._category;
     return json;
-  }*/
+  }
 
 }
