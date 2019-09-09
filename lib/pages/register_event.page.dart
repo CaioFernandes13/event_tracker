@@ -121,7 +121,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
     );
   }
 
-  String _validarNome(String value) {
+  /*String _validarNome(String value) {
     String patttern = r'(^[a-zA-Z ]*$)';
     RegExp regExp = new RegExp(patttern);
     if (value.length == 0) {
@@ -155,7 +155,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
     }else {
       return null;
     }
-  }
+  }*/
 
   _sendForm() {
     if (_key.currentState.validate()) {

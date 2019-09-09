@@ -118,7 +118,7 @@ class Event extends StatelessWidget {
     );
   }
 
-  Widget _getDetailWidget(detail) {
+  /*Widget _getDetailWidget(detail) {
     return new Text(
       detail,
       style: new TextStyle(color: Colors.grey, fontSize: 10.0),
@@ -130,7 +130,7 @@ class Event extends StatelessWidget {
       url,
       style: new TextStyle(color: Colors.grey, fontSize: 10.0),
     );
-  }
+  }*/
 
   
   Event.fromJson(Map<String, dynamic> json){

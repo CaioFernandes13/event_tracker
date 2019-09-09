@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:event_tracker/models/event.dart';
-import 'dart:async';
-import 'dart:convert';
 
 final database = Firestore.instance;
 

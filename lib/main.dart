@@ -1,4 +1,3 @@
-import 'package:event_tracker/pages/busca_online.page.dart';
 import 'package:event_tracker/pages/event.list.page.dart';
 import 'package:event_tracker/pages/register_event.page.dart';
 import 'package:event_tracker/pages/home.page.dart';

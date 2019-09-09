@@ -16,7 +16,6 @@ class _EventListPageState extends State<EventListPage> {
   List _events = new List();
   var repositorio = new EventsAPI();
   QuerySnapshot eventsQ;
-  BuildContext _context;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
