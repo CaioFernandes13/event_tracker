@@ -3,17 +3,35 @@ import 'package:flutter/material.dart';
 
 import '../database/database.dart';
 
-class RegisterEventPage extends StatefulWidget {
+class EditEventPage extends StatefulWidget {
+  String _id, _date, _name, _detail, _image, _url, _category, _address;
+  EditEventPage(this._id,
+      this._date,
+      this._address,
+      this._name,
+      this._detail,
+      this._image,
+      this._url,
+      this._category);
   @override
-  _RegisterEventPageState createState() => _RegisterEventPageState();
+  _EditEventPageState createState() => _EditEventPageState(_id, _date, _address,_name, _detail, _image, _url, _category);
 }
 
-class _RegisterEventPageState extends State<RegisterEventPage> {
+class _EditEventPageState extends State<EditEventPage> {
+  
   GlobalKey<FormState> _key = new GlobalKey();
   //Event event = new Event(_img, _title, _date, _description)
   Event event;
   bool _validate = false;
-  String _date, _name, _detail, _image, _url, _category, _address;
+  String _id, _date, _name, _detail, _image, _url, _category, _address;
+  _EditEventPageState(this._id,
+      this._date,
+      this._address,
+      this._name,
+      this._detail,
+      this._image,
+      this._url,
+      this._category);
     /*
     {
       "id": 1,
@@ -41,7 +59,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
     return MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('Cadastrar Evento - Event Tracker'),
+          title: new Text('Editar Evento - Event Tracker'),
           backgroundColor: Colors.black,
         ),
         body: new SingleChildScrollView(
@@ -64,6 +82,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
         new TextFormField(
           decoration: new InputDecoration(hintText: 'Nome do Evento'),
           maxLength: 40,
+          initialValue: _name,
           //validator: _validarNome,
           onSaved: (String val) {
             _name = val;
@@ -73,6 +92,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
             decoration: new InputDecoration(hintText: 'Data de Início'),
             keyboardType: TextInputType.datetime,
             maxLength: 20,
+            initialValue: _date,
             //validator: _validarData,
             onSaved: (String val) {
               _date = val;
@@ -81,6 +101,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
             decoration: new InputDecoration(hintText: 'Descrição'),
             keyboardType: TextInputType.multiline,
             maxLength: 200,
+            initialValue: _detail,
             onSaved: (String val) {
               _detail = val;
             }),
@@ -88,6 +109,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
             decoration: new InputDecoration(hintText: 'Imagem'),
             keyboardType: TextInputType.multiline,
             maxLength: 200,
+            initialValue: _image,
             onSaved: (String val) {
               _image = val;
             }),
@@ -95,6 +117,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
             decoration: new InputDecoration(hintText: 'Link do evento'),
             keyboardType: TextInputType.url,
             maxLength: 100,
+            initialValue: _url,
             onSaved: (String val) {
               _url = val;
             }),
@@ -102,6 +125,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
             decoration: new InputDecoration(hintText: 'Local'),
             keyboardType: TextInputType.text,
             maxLength: 200,
+            initialValue: _address,
             onSaved: (String val) {
               _address = val;
             }),
@@ -109,6 +133,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
             decoration: new InputDecoration(hintText: 'Categoria'),
             keyboardType: TextInputType.text,
             maxLength: 30,
+            initialValue: _category,
             onSaved: (String val) {
               _category = val;
             }),
@@ -163,7 +188,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
       _key.currentState.save();
       event = new Event('',_date, _address, _name, _detail, _image, _url, _category);
       print(event.toJson());
-      createRecord(event);
+      updateData(_id, event);
       Navigator.of(context).pushNamed('/event-list-page');
     } else {
       // erro de validação

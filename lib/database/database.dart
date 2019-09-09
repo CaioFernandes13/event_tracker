@@ -20,26 +20,22 @@ retrieveData() async{
   
 }
 
-void updateData(DocumentSnapshot document) {
+void updateData(String documentID, Event event) {
   try {
     database
         .collection("events")
-        .document(document.documentID)
-        //Caso precisemos atualizar algo no firestore, precisaremos
-        // saber o nome do arquivo no firestore
-        .updateData({'nome do campo': 'dado'});
-    //Aqui escolhemos qual campo queremos mudar, informando o campo e o dado a
-    //ser atualizado
+        .document(documentID)
+        .updateData(event.toJson());
   } catch (e) {
     print(e.toString());
   }
 }
 
-void deleteData() {
+void deleteData(String documentID) {
   try {
     database
         .collection("events")
-        .document()
+        .document(documentID)
         .delete(); //função que exclui o documento do banco
   } catch (e) {
     print(e.toString());

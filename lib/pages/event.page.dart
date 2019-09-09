@@ -1,7 +1,11 @@
+import 'package:event_tracker/database/database.dart';
+import 'package:event_tracker/pages/edit_event.page.dart';
+import 'package:event_tracker/pages/teste.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 
 class EventPage extends StatelessWidget{
-
+  var _id;
   var _img;
   var _date;
   var _address;
@@ -10,7 +14,9 @@ class EventPage extends StatelessWidget{
   var _url;
   var _category;
 
-  EventPage(this._date,
+  EventPage(
+      this._id,
+      this._date,
       this._address,
       this._name,
       this._detail,
@@ -25,6 +31,29 @@ class EventPage extends StatelessWidget{
           title: Text(_name),
           backgroundColor: Colors.black,
         ),
+        drawer: new Drawer(
+        child: ListView(
+          children: <Widget>[
+            new ListTile(
+              title: new Text('Editar'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new EditEventPage(_id, _date, _address,_name, _detail, _img, _url, _category)));
+              },
+            ),
+            new ListTile(
+              title: new Text('Excluir'),
+              onTap: () {
+                deleteData(_id);
+                Navigator.of(context).pushNamed('/event-list-page');
+              },
+            ),
+          ],
+        ),
+      ),
       body: new Container(
         margin: new EdgeInsets.all(10.0),
         child: new Material(

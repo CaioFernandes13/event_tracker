@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       ),
       home: HomePage(),
       routes: <String, WidgetBuilder>{
-        '/bonline-page': (BuildContext context) => new BOnlinePage(),
+        '/home-page': (BuildContext context) => new HomePage(),
         '/event-list-page': (BuildContext context) => new EventListPage(),
         '/register-event-page': (BuildContext context) => new RegisterEventPage(),
       },

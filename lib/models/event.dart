@@ -46,7 +46,7 @@ class Event extends StatelessWidget {
       Navigator
       .of(_context)
       .push(new MaterialPageRoute(builder: (BuildContext context) {
-        return new EventPage(_date, _address,
+        return new EventPage(_id, _date, _address,
               _name, _detail, _img, _url, _category);
       }));
     }
