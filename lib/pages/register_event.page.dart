@@ -10,9 +10,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
   GlobalKey<FormState> _key = new GlobalKey();
   //Event event = new Event(_img, _title, _date, _description)
   bool _validate = false;
-  String start_date, end_date, name, detail, image, url, category;
-  List address;
-  String address_name, address_address, address_num, address_alt, neighborhood, city, state, country;
+  String start_date, end_date, name, detail, image, url, category, address;
     /*
     {
       "id": 1,
@@ -105,68 +103,11 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
               url = val;
             }),
         new TextFormField(
-            decoration: new InputDecoration(hintText: 'Nome do Estabelecimento do Evento'),
+            decoration: new InputDecoration(hintText: 'Local'),
             keyboardType: TextInputType.text,
-            maxLength: 20,
+            maxLength: 200,
             onSaved: (String val) {
-              address_name = val;
-              address.add(address_name);
-            }),
-        new TextFormField(
-            decoration: new InputDecoration(hintText: 'Logradouro'),
-            keyboardType: TextInputType.text,
-            maxLength: 100,
-            onSaved: (String val) {
-              address_name = val;
-              address.add(address_name);
-            }),
-        new TextFormField(
-            decoration: new InputDecoration(hintText: 'Nº'),
-            keyboardType: TextInputType.number,
-            maxLength: 5,
-            onSaved: (String val) {
-              address_num = val;
-              address.add(address_num);
-            }),
-        new TextFormField(
-            decoration: new InputDecoration(hintText: 'Complemento (Andar/Referência)'),
-            keyboardType: TextInputType.text,
-            maxLength: 100,
-            onSaved: (String val) {
-              address_alt = val;
-              address.add(address_alt);
-            }),
-        new TextFormField(
-            decoration: new InputDecoration(hintText: 'Bairro'),
-            keyboardType: TextInputType.text,
-            maxLength: 100,
-            onSaved: (String val) {
-              neighborhood = val;
-              address.add(neighborhood);
-            }),
-        new TextFormField(
-            decoration: new InputDecoration(hintText: 'Cidade'),
-            keyboardType: TextInputType.text,
-            maxLength: 100,
-            onSaved: (String val) {
-              city = val;
-              address.add(city);
-            }),
-        new TextFormField(
-            decoration: new InputDecoration(hintText: 'Estado'),
-            keyboardType: TextInputType.text,
-            maxLength: 100,
-            onSaved: (String val) {
-              state = val;
-              address.add(state);
-            }),
-          new TextFormField(
-            decoration: new InputDecoration(hintText: 'País'),
-            keyboardType: TextInputType.text,
-            maxLength: 100,
-            onSaved: (String val) {
-              country = val;
-              address.add(country);
+              address = val;
             }),
         new SizedBox(height: 15.0),
         new RaisedButton(

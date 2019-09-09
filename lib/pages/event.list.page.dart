@@ -50,7 +50,7 @@ class _EventListPageState extends State<EventListPage> {
     setState(() {
       result.forEach((item) {
         var notice = new Event(
-            item['start_date'], item['end_date'], item['name'], item['detail'],
+            item['date'], item['address'], item['name'], item['detail'],
             item['image'], item['url'],item['category']
             );
 

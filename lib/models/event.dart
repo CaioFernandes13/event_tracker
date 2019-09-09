@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 
 class Event extends StatelessWidget {
   var _img;
-  var _start_date;
-  var _end_date;
+  var _date;
+  var _address;
   var _name;
   var _detail;
   var _url;
   var _category;
 
   Event(
-      this._start_date,
-      this._end_date,
+      this._date,
+      this._address,
       this._name,
       this._detail,
       this._img,
@@ -44,7 +44,7 @@ class Event extends StatelessWidget {
       Navigator
       .of(_context)
       .push(new MaterialPageRoute(builder: (BuildContext context) {
-        return new EventPage(_start_date, _end_date,
+        return new EventPage(_date, _address,
               _name, _detail, _img, _url, _category);
       }));
     }
@@ -63,14 +63,14 @@ class Event extends StatelessWidget {
             width: 95.0,
             height: 95.0,
           ),
-          _getColumText(_start_date, _end_date,
+          _getColumText(_date, _address,
               _name, _detail, _url, _category),
         ],
       ),
     );
   }
 
-  Widget _getColumText(start_date, end_date, name,
+  Widget _getColumText(date, address, name,
       detail, url, category) {
     return new Expanded(
         child: new Container(
@@ -78,8 +78,8 @@ class Event extends StatelessWidget {
       child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _getStartDateWidget(_start_date),
-            _getEndDateWidget(_end_date),
+            _getStartDateWidget(_date),
+            _getEndDateWidget(_address),
             _getNameWidget(_name),
             _getDetailWidget(_detail),
             _getUrlWidget(_url),
@@ -88,16 +88,16 @@ class Event extends StatelessWidget {
     ));
   }
 
-  Widget _getStartDateWidget(String start_date) {
+  Widget _getStartDateWidget(String date) {
     return new Text(
-      start_date,
+      date,
       style: new TextStyle(color: Colors.grey, fontSize: 10.0),
     );
   }
 
-  Widget _getEndDateWidget(end_date) {
+  Widget _getEndDateWidget(address) {
     return new Text(
-      end_date,
+      address,
       style: new TextStyle(color: Colors.grey, fontSize: 10.0),
     );
   }
@@ -133,8 +133,8 @@ class Event extends StatelessWidget {
   
   Event.fromJson(Map<String, dynamic> json){
     _img = json['image'];
-    _start_date = json['start_date'];
-    _end_date = json['end_date'];
+    _date = json['date'];
+    _address = json['address'];
     _name = json['name'];
     _detail = json['detail'];
     _url = json['url'];
@@ -144,8 +144,8 @@ class Event extends StatelessWidget {
   Map<String, dynamic> toJson(){
     final Map<String, dynamic> json = new Map<String, dynamic> ();
     json['image'] = this._img;
-    json['start_date'] = this._start_date;
-    json['end_date'] = this._end_date;
+    json['date'] = this._date;
+    json['address'] = this._address;
     json['name'] = this._name;
     json['detail'] = this._detail;
     json['url'] = this._url;

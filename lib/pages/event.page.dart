@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class EventPage extends StatelessWidget{
 
   var _img;
-  var _start_date;
-  var _end_date;
+  var _date;
+  var _address;
   var _name;
   var _detail;
   var _url;
   var _category;
 
-  EventPage(this._start_date,
-      this._end_date,
+  EventPage(this._date,
+      this._address,
       this._name,
       this._detail,
       this._img,
@@ -30,7 +30,7 @@ class EventPage extends StatelessWidget{
           child: new ListView(
             children: <Widget>[
              _getImageNetwork(_img),
-              _getBody(_name,_start_date,_detail),
+              _getBody(_name,_date,_detail),
             ],
           ),
         ),
@@ -49,23 +49,23 @@ class EventPage extends StatelessWidget{
 
   }
 
-  Widget _getBody(tittle,date,description){
+  Widget _getBody(name,date,detail){
 
     return new Container(
       margin: new EdgeInsets.all(15.0),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _getTittle(tittle),
-          _getDate(_start_date),
-          _getDescription(description),
+          _getName(name),
+          _getDate(date),
+          _getdetail(detail),
         ],
       ),
     );
   }
 
-  _getTittle(tittle) {
-    return new Text(tittle,
+  _getName(name) {
+    return new Text(name,
     style: new TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 20.0),
@@ -85,10 +85,10 @@ class EventPage extends StatelessWidget{
     );
   }
 
-  _getDescription(description) {
+  _getdetail(detail) {
     return new Container(
       margin: new  EdgeInsets.only(top: 20.0),
-      child: new Text(description),
+      child: new Text(detail),
     );
   }
 
