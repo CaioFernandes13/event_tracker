@@ -42,10 +42,10 @@ class HomePage extends StatelessWidget {
             ),*/
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/fav-page');
+                Navigator.of(context).pushNamed('/event-list-page');
               },
               child: Text(
-                "Favoritos",
+                "Lista de eventos",
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
               color: Colors.black,

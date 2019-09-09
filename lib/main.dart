@@ -1,5 +1,6 @@
 import 'package:event_tracker/pages/busca_online.page.dart';
-import 'package:event_tracker/pages/fav.page.dart';
+import 'package:event_tracker/pages/event.list.page.dart';
+import 'package:event_tracker/pages/event.page.dart';
 import 'package:event_tracker/pages/register_event.page.dart';
 import 'package:event_tracker/pages/home.page.dart';
 //import 'package:event_tracker/pages/teste.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: <String, WidgetBuilder>{
         '/bonline-page': (BuildContext context) => new BOnlinePage(),
-        '/fav-page': (BuildContext context) => new FavPage(),
+        '/event-list-page': (BuildContext context) => new EventListPage(),
         '/register-event-page': (BuildContext context) => new RegisterEventPage(),
       },
     );

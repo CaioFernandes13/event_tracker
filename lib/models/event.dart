@@ -1,3 +1,4 @@
+import 'package:event_tracker/pages/event.page.dart';
 import 'package:flutter/material.dart';
 
 class Event extends StatelessWidget {
@@ -24,17 +25,29 @@ class Event extends StatelessWidget {
   Widget build(BuildContext context) {
     this._context = context;
 
-    //Foi adicionado dentro de Container para adicionar margem no item
     return new Container(
       margin: const EdgeInsets.only(
-          left: 10.0, right: 10.0, bottom: 10.0, top: 0.0),
+      left: 10.0, right: 10.0, bottom: 10.0, top: 0.0),
       child: new Material(
-        borderRadius: new BorderRadius.circular(6.0),
-        elevation: 2.0,
-        child: _getListTile(),
-      ),
+          borderRadius: new BorderRadius.circular(6.0),
+          elevation: 2.0,
+          child: new InkWell(
+            onTap: showDetail,
+            splashColor: Colors.blue,
+            child: _getListTile(),
+          ),
+        ),
     );
   }
+
+   showDetail() {
+      Navigator
+      .of(_context)
+      .push(new MaterialPageRoute(builder: (BuildContext context) {
+        return new EventPage(_start_date, _end_date,
+              _name, _detail, _img, _url, _category);
+      }));
+    }
 
   Widget _getListTile() {
     // Foi adicionado dentro de Container para adicionar altura fixa.

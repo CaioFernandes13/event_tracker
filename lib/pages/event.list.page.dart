@@ -1,20 +1,21 @@
 import 'package:event_tracker/models/event.dart';
+import 'package:event_tracker/pages/event.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
 
 import '../repositorio.dart';
 
-class FavPage extends StatefulWidget {
-  FavPage({Key key}) : super(key: key);
+class EventListPage extends StatefulWidget {
+  EventListPage({Key key}) : super(key: key);
 
-  _FavPageState createState() => _FavPageState();
+  _EventListPageState createState() => _EventListPageState();
 }
 
-class _FavPageState extends State<FavPage> {
+class _EventListPageState extends State<EventListPage> {
   List _events = new List();
   var repositorio = new EventsAPI();
-
+  BuildContext _context;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,8 +58,6 @@ class _FavPageState extends State<FavPage> {
       });
     });
   }
-
-
 
 }
 
