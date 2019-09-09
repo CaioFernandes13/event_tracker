@@ -52,8 +52,7 @@ class _EventListPageState extends State<EventListPage> {
       eventsQ = results;
       if(eventsQ != null){
         eventsQ.documents.forEach((item) {
-          print(item);
-          var event = new Event(
+          var event = new Event(item.documentID,
               item['date'], item['address'], item['name'], item['detail'],
               item['image'], item['url'],item['category']
               );

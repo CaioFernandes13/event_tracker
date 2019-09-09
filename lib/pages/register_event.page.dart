@@ -160,7 +160,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
     if (_key.currentState.validate()) {
       // Sem erros na validação
       _key.currentState.save();
-      event = new Event(_date, _address, _name, _detail, _image, _url, _category);
+      event = new Event('',_date, _address, _name, _detail, _image, _url, _category);
       print(event.toJson());
       createRecord(event);
 

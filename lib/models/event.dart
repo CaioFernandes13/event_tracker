@@ -2,6 +2,7 @@ import 'package:event_tracker/pages/event.page.dart';
 import 'package:flutter/material.dart';
 
 class Event extends StatelessWidget {
+  var _id;
   var _img;
   var _date;
   var _address;
@@ -11,6 +12,7 @@ class Event extends StatelessWidget {
   var _category;
 
   Event(
+      this._id,
       this._date,
       this._address,
       this._name,
@@ -78,41 +80,41 @@ class Event extends StatelessWidget {
       child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _getStartDateWidget(_date),
-            _getEndDateWidget(_address),
             _getNameWidget(_name),
-            _getDetailWidget(_detail),
-            _getUrlWidget(_url),
+            _getDateWidget(_date),
+            new Container(height: 10,),
+            _getAddressWidget(_address),
+            new Container(height: 10,),
             _getCategoryWidget(_category),
           ]),
     ));
   }
 
-  Widget _getStartDateWidget(String date) {
+  Widget _getDateWidget(String date) {
     return new Text(
       date,
-      style: new TextStyle(color: Colors.grey, fontSize: 10.0),
+      style: new TextStyle(color: Colors.grey, fontSize: 8.0),
     );
   }
 
-  Widget _getEndDateWidget(address) {
+  Widget _getAddressWidget(address) {
     return new Text(
       address,
-      style: new TextStyle(color: Colors.grey, fontSize: 10.0),
+      style: new TextStyle(color: Colors.grey, fontSize: 8.0),
     );
   }
 
   Widget _getCategoryWidget(category) {
     return new Text(
       category,
-      style: new TextStyle(color: Colors.grey, fontSize: 10.0),
+      style: new TextStyle(color: Colors.black54, fontSize: 8.0),
     );
   }
 
   Widget _getNameWidget(name) {
     return new Text(
       name,
-      style: new TextStyle(color: Colors.grey, fontSize: 10.0),
+      style: new TextStyle(color: Colors.black, fontSize: 13.0),
     );
   }
 

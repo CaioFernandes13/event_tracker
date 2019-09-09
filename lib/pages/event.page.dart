@@ -21,7 +21,10 @@ class EventPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(),
+      appBar: AppBar(
+          title: Text(_name),
+          backgroundColor: Colors.black,
+        ),
       body: new Container(
         margin: new EdgeInsets.all(10.0),
         child: new Material(
@@ -30,7 +33,7 @@ class EventPage extends StatelessWidget{
           child: new ListView(
             children: <Widget>[
              _getImageNetwork(_img),
-              _getBody(_name,_date,_detail),
+              _getBody(_name, _date, _detail, _address, _category, _url),
             ],
           ),
         ),
@@ -44,12 +47,13 @@ class EventPage extends StatelessWidget{
           height: 200.0,
           child: new Image.network(
             url,
-            fit: BoxFit.cover)
+            fit: BoxFit.cover,
+            )
         );
 
   }
 
-  Widget _getBody(name,date,detail){
+  Widget _getBody(name, date, detail, address, category, url){
 
     return new Container(
       margin: new EdgeInsets.all(15.0),
@@ -58,7 +62,10 @@ class EventPage extends StatelessWidget{
         children: <Widget>[
           _getName(name),
           _getDate(date),
-          _getdetail(detail),
+          _getDetail(detail),
+          _getAddress(address),
+          _getUrl(url),
+          _getCategory(category),
         ],
       ),
     );
@@ -85,10 +92,44 @@ class EventPage extends StatelessWidget{
     );
   }
 
-  _getdetail(detail) {
+  _getDetail(detail) {
     return new Container(
       margin: new  EdgeInsets.only(top: 20.0),
       child: new Text(detail),
+    );
+  }
+
+  _getAddress(address) {
+    return new Container(
+      margin: new  EdgeInsets.only(top: 80.0),
+      child: new Text(address,
+        style: new TextStyle(
+                  fontSize: 11.0,
+                  color: Colors.grey
+              ),),
+    );
+  }
+
+  _getCategory(category) {
+    return new Container(
+      margin: new  EdgeInsets.only(top: 20.0),
+      child: new Text(category,
+      style: new TextStyle(
+                  fontSize: 9.0,
+                  color: Colors.black
+              ),
+      ),
+    );
+  }
+
+  _getUrl(url) {
+    return new Container(
+      margin: new  EdgeInsets.only(top: 5.0),
+      child: new Text(url,
+      style: new TextStyle(
+                  fontSize: 9.0,
+                  color: Colors.grey
+              ),),
     );
   }
 
