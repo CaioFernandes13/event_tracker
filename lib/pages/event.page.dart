@@ -1,8 +1,6 @@
 import 'package:event_tracker/database/database.dart';
 import 'package:event_tracker/pages/edit_event.page.dart';
-import 'package:event_tracker/pages/teste.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
 
 class EventPage extends StatelessWidget{
   var _id;
