@@ -49,7 +49,9 @@ class _FavPageState extends State<FavPage> {
     setState(() {
       result.forEach((item) {
         var notice = new Event(
-            item['url_img'], item['title'], item['date'], item['description']);
+            item['start_date'], item['end_date'], item['name'], item['detail'],
+            item['image'], item['url'],item['category']
+            );
 
         _events.add(notice);
       });

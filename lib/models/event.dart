@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 class Event extends StatelessWidget {
   var _img;
-  var _title;
-  var _date;
   var _description;
   var _start_date;
   var _end_date;
@@ -13,17 +11,13 @@ class Event extends StatelessWidget {
   var _category;
 
   Event(
-      this._img,
-      this._title,
-      this._date,
-      this._description,
       this._start_date,
       this._end_date,
       this._name,
       this._detail,
+      this._img,
       this._url,
-      this._category,
-      this._context);
+      this._category);
 
   BuildContext _context;
 
@@ -57,14 +51,14 @@ class Event extends StatelessWidget {
             width: 95.0,
             height: 95.0,
           ),
-          _getColumText(_title, _date, _description, _start_date, _end_date,
+          _getColumText(_description, _start_date, _end_date,
               _name, _detail, _url, _category),
         ],
       ),
     );
   }
 
-  Widget _getColumText(tittle, date, description, start_date, end_date, name,
+  Widget _getColumText(description, start_date, end_date, name,
       detail, url, category) {
     return new Expanded(
         child: new Container(
@@ -72,8 +66,6 @@ class Event extends StatelessWidget {
       child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _getTitleWidget(_title),
-            _getDateWidget(_date),
             _getDescriptionWidget(_description),
             _getStartDateWidget(_start_date),
             _getEndDateWidget(_end_date),
@@ -83,14 +75,6 @@ class Event extends StatelessWidget {
             _getCategoryWidget(_category),
           ]),
     ));
-  }
-
-  Widget _getTitleWidget(String currencyName) {
-    return new Text(
-      currencyName,
-      maxLines: 1,
-      style: new TextStyle(fontWeight: FontWeight.bold),
-    );
   }
 
   Widget _getDescriptionWidget(String description) {
