@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:event_tracker/models/event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -14,6 +15,7 @@ class EventListPage extends StatefulWidget {
 class _EventListPageState extends State<EventListPage> {
   List _events = new List();
   var repositorio = new EventsAPI();
+  QuerySnapshot eventsQ;
   BuildContext _context;
   @override
   Widget build(BuildContext context) {
@@ -42,20 +44,28 @@ class _EventListPageState extends State<EventListPage> {
     return list;
   }
 
-  loadEvents() async {
-    List result = await retrieveData();
+  loadEvents(){
+    //List result = await retrieveData();
     //print("TESTE");
-    print(result);
-    setState(() {
-      result.forEach((item) {
-        var event = new Event(
-            item['date'], item['address'], item['name'], item['detail'],
-            item['image'], item['url'],item['category']
-            );
+    retrieveData().then((results) {
+    setState((){
+      eventsQ = results;
+      if(eventsQ != null){
+        eventsQ.documents.forEach((item) {
+          print(item);
+          var event = new Event(
+              item['date'], item['address'], item['name'], item['detail'],
+              item['image'], item['url'],item['category']
+              );
 
-        _events.add(event.toJson());
-      });
+          _events.add(event);
+        });
+      }
+      else{
+        return Text('Carregando, por favor aguarde...');
+      }
     });
+  });
   }
 
 }

@@ -15,16 +15,9 @@ void createRecord(Event event) async {
   //o método "toJson" já coloca no padrão esperado para inserir no firestore
 }
 
-Future <List> retrieveData() async{
-  await database
-      .collection("events")
-      .getDocuments() //Caso queira um documento específico, basta substituir
-      //essa linha por ".document("nome do documento")
-      .then((QuerySnapshot snapshot) {
-    //snapshot.documents.forEach((f) => print('${f.data}}'));
-    //return jsonDecode(snapshot);
-    return snapshot.documents;
-  });
+retrieveData() async{
+   return await database.collection('events').getDocuments();
+  
 }
 
 void updateData() {
