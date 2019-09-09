@@ -47,6 +47,7 @@ class EventPage extends StatelessWidget{
               onTap: () {
                 deleteData(_id);
                 Navigator.pop(context);
+                Navigator.pop(context);
                 Navigator.of(context).pushNamed('/event-list-page');
               },
             ),
