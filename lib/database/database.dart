@@ -6,7 +6,7 @@ final database = Firestore.instance;
 void createRecord(Event event) async {
   //Passa o objeto que será incluído no firestore
   await database
-      .collection("nome da collection")
+      .collection("events")
       .document() //nome do documento no banco, caso deixe vazio,
       // próprio firestore gera um nome único pra ele
       .setData(event.toJson()); //setData insere o objeto no firestore
@@ -15,7 +15,7 @@ void createRecord(Event event) async {
 
 void retrieveData() {
   database
-      .collection("nome da collection")
+      .collection("events")
       .getDocuments() //Caso queira um documento específico, basta substituir
       //essa linha por ".document("nome do documento")
       .then((QuerySnapshot snapshot) {
@@ -26,7 +26,7 @@ void retrieveData() {
 void updateData() {
   try {
     database
-        .collection("nome da collection")
+        .collection("events")
         .document("nome do documento a ser atualizado")
         //Caso precisemos atualizar algo no firestore, precisaremos
         // saber o nome do arquivo no firestore
@@ -41,7 +41,7 @@ void updateData() {
 void deleteData() {
   try {
     database
-        .collection("nome da collection")
+        .collection("events")
         .document("nome do documento a ser excluído")
         .delete(); //função que exclui o documento do banco
   } catch (e) {

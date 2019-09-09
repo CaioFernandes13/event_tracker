@@ -1,6 +1,8 @@
 import 'package:event_tracker/models/event.dart';
 import 'package:flutter/material.dart';
 
+import '../database/database.dart';
+
 class RegisterEventPage extends StatefulWidget {
   @override
   _RegisterEventPageState createState() => _RegisterEventPageState();
@@ -10,7 +12,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
   GlobalKey<FormState> _key = new GlobalKey();
   //Event event = new Event(_img, _title, _date, _description)
   bool _validate = false;
-  String start_date, end_date, name, detail, image, url, category, address;
+  String _date, _name, _detail, _image, _url, _category, _address;
     /*
     {
       "id": 1,
@@ -62,7 +64,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
           maxLength: 40,
           validator: _validarNome,
           onSaved: (String val) {
-            name = val;
+            _name = val;
           },
         ),
         new TextFormField(
@@ -71,43 +73,35 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
             maxLength: 10,
             //validator: _validarData,
             onSaved: (String val) {
-              start_date = val;
-            }),
-            new TextFormField(
-            decoration: new InputDecoration(hintText: 'Data de Fim'),
-            keyboardType: TextInputType.datetime,
-            maxLength: 10,
-            //validator: _validarData,
-            onSaved: (String val) {
-              end_date = val;
+              _date = val;
             }),
         new TextFormField(
             decoration: new InputDecoration(hintText: 'Descrição'),
             keyboardType: TextInputType.multiline,
             maxLength: 200,
             onSaved: (String val) {
-              detail = val;
+              _detail = val;
             }),
-        /*new TextFormField(
+        new TextFormField(
             decoration: new InputDecoration(hintText: 'Imagem'),
             keyboardType: TextInputType.multiline,
             maxLength: 200,
             onSaved: (String val) {
-              image = val;
-            }),*/
+              _image = val;
+            }),
         new TextFormField(
             decoration: new InputDecoration(hintText: 'Link do evento'),
             keyboardType: TextInputType.url,
             maxLength: 100,
             onSaved: (String val) {
-              url = val;
+              _url = val;
             }),
         new TextFormField(
             decoration: new InputDecoration(hintText: 'Local'),
             keyboardType: TextInputType.text,
             maxLength: 200,
             onSaved: (String val) {
-              address = val;
+              _address = val;
             }),
         new SizedBox(height: 15.0),
         new RaisedButton(
@@ -158,6 +152,7 @@ class _RegisterEventPageState extends State<RegisterEventPage> {
     if (_key.currentState.validate()) {
       // Sem erros na validação
       _key.currentState.save();
+      createRecord(new Event(_date, _address, _name, _detail, _image, _url, _category));
       /*print("Nome $nome");
       print("Ceclular $celular");
       print("Email $email");*/

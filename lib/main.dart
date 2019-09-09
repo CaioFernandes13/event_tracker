@@ -1,11 +1,8 @@
 import 'package:event_tracker/pages/busca_online.page.dart';
 import 'package:event_tracker/pages/event.list.page.dart';
-import 'package:event_tracker/pages/event.page.dart';
 import 'package:event_tracker/pages/register_event.page.dart';
 import 'package:event_tracker/pages/home.page.dart';
-//import 'package:event_tracker/pages/teste.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 void main() => runApp(MyApp());
 

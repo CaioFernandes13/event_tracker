@@ -1,8 +1,6 @@
 import 'package:event_tracker/models/event.dart';
-import 'package:event_tracker/pages/event.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:http/http.dart';
 
 import '../repositorio.dart';
 
@@ -20,7 +18,7 @@ class _EventListPageState extends State<EventListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Busca Online - Event Tracker"),
+          title: Text("Lista de eventos - Event Tracker"),
           backgroundColor: Colors.black,
         ),
         body: Container(
@@ -49,12 +47,12 @@ class _EventListPageState extends State<EventListPage> {
     print(result);
     setState(() {
       result.forEach((item) {
-        var notice = new Event(
+        var event = new Event(
             item['date'], item['address'], item['name'], item['detail'],
             item['image'], item['url'],item['category']
             );
 
-        _events.add(notice);
+        _events.add(event);
       });
     });
   }
